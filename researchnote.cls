@@ -4,6 +4,9 @@
 % ---------------------------------------------------------------------------
 % Base class
 % ---------------------------------------------------------------------------
+% Option "numbers": numeric citations [1] instead of author-year (default)
+\newif\if@rn@numbers
+\DeclareOption{numbers}{\@rn@numberstrue}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 \ProcessOptions\relax
 \LoadClass[11pt]{article}
@@ -139,6 +142,17 @@
 }
 
 % ---------------------------------------------------------------------------
+% Bibliography: natbib, author-year by default (\citet, \citep)
+% ---------------------------------------------------------------------------
+\if@rn@numbers
+  \RequirePackage[numbers,sort&compress]{natbib}
+\else
+  \RequirePackage[round,sort]{natbib}
+  \setcitestyle{aysep={}}   % (Doe and Smith 2020), astronomy style
+\fi
+\bibliographystyle{plainnat}
+
+% ---------------------------------------------------------------------------
 % Links
 % ---------------------------------------------------------------------------
 \definecolor{linkcolor}{rgb}{0,0,0.6}
@@ -252,7 +266,6 @@ separator sign={\ $\blacktriangleright$}}{prop}
 \newcommand\zap{Z.~Astrophys.}
 
 % References heading: no upper-case running head
-\AtBeginDocument{\@ifpackageloaded{natbib}{%
-  \renewcommand\bibsection{\section*{\refname}\markboth{\refname}{\refname}}}{}}
+\renewcommand\bibsection{\section*{\refname}\markboth{\refname}{\refname}}
 
 \endinput

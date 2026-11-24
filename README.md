@@ -18,7 +18,6 @@ Minimal document:
 
 ```latex
 \documentclass{researchnote}
-\usepackage[numbers,sort&compress]{natbib}
 
 \title{Note title}
 \runningtitle{Short title}          % running head; defaults to the title
@@ -37,12 +36,25 @@ Two to five sentences on what the note is about.
 \section{First section}
 ...
 
-\bibliographystyle{plainnat}
 \bibliography{refs}
 \end{document}
 ```
 
 `example.tex` uses every feature of the class.
+
+## Citations
+
+The class loads `natbib` with author-year citations and the `plainnat` style:
+
+| Command | Output |
+| --- | --- |
+| `\citet{key}` | Doe and Smith (2020) |
+| `\citep{key}` | (Doe and Smith 2020) |
+| `\citep{a,b}` | (Doe and Smith 2020; Roe 2018) |
+| `\citep[see][chap.~2]{key}` | (see Roe 2018, chap. 2) |
+
+For numeric citations `[1]`, use `\documentclass[numbers]{researchnote}`.
+Do not load `natbib` again in the document.
 
 ## Page layout
 
@@ -79,4 +91,4 @@ Boxes are numbered within sections. Astronomy journal macros (`\mnras`, `\apj`,
 
 `geometry`, `fontenc` (T1), `lmodern`, `microtype`, `xcolor` (svgnames),
 `amsmath`, `amsthm`, `amssymb`, `witharrows`, `graphicx`, `tikz`,
-`anyfontsize`, `titlesec`, `fancyhdr`, `tcolorbox`, `caption`, `hyperref`.
+`anyfontsize`, `titlesec`, `fancyhdr`, `tcolorbox`, `caption`, `natbib`, `hyperref`.

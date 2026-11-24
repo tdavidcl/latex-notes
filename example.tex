@@ -1,6 +1,5 @@
 \documentclass{researchnote}
 
-\usepackage[numbers,sort&compress]{natbib}
 \usepackage{lipsum}
 
 % --- shared macros (would live in common/macros.tex) ---
@@ -26,7 +25,8 @@ sentences long. The link below it points back to where the note came from.
 
 \section{First section}
 
-\lipsum[1][1-5] A citation looks like this~\cite{Doe2020}, and a numbered equation like this:
+\lipsum[1][1-5] \citet{Doe2020} is a textual citation and \citep{Doe2020} a parenthetical one;
+several at once give \citep{Doe2020,Roe2018}. A numbered equation looks like this:
 \begin{equation}
   f(x) = \sum_{k=0}^{n} a_k\, x^k .
   \label{eq:poly}
@@ -82,7 +82,7 @@ Expand step by step:
 \]
 \end{proof}
 
-A second reference, to a book~\cite{Roe2018}. A list of points:
+A second reference, to a book \citep[see chapter~2 of][]{Roe2018}. A list of points:
 
 \begin{itemize}
   \item \textbf{First point.} \lipsum[4][1-2]
@@ -93,7 +93,6 @@ A second reference, to a book~\cite{Roe2018}. A list of points:
 \textbf{Warning box.} Use this for caveats or things that are easy to get wrong.
 \end{marker}
 
-\bibliographystyle{plainnat}
 \bibliography{example}
 
 \end{document}
