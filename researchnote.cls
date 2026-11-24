@@ -142,7 +142,9 @@
 }
 
 % ---------------------------------------------------------------------------
-% Bibliography: natbib, author-year by default (\citet, \citep)
+% Bibliography: natbib, author-year by default (\citet, \citep),
+% QV_mnras.bst style (from phd-thesis-tempate) with coloured links:
+% journal/DOI in red, ADS in blue, arXiv in green
 % ---------------------------------------------------------------------------
 \if@rn@numbers
   \RequirePackage[numbers,sort&compress]{natbib}
@@ -150,7 +152,11 @@
   \RequirePackage[round,sort]{natbib}
   \setcitestyle{aysep={}}   % (Doe and Smith 2020), astronomy style
 \fi
-\bibliographystyle{plainnat}
+\bibliographystyle{QV_mnras}
+\setlength{\bibsep}{0.5pt}
+\definecolor{LinkJournal}{rgb}{0.7,0,0}
+\definecolor{LinkADS}{rgb}{0.2,0,0.7}
+\definecolor{LinkArXiv}{rgb}{0.1,0.5,0.1}
 
 % ---------------------------------------------------------------------------
 % Links

@@ -54,7 +54,20 @@ The class loads `natbib` with author-year citations and the `plainnat` style:
 | `\citep[see][chap.~2]{key}` | (see Roe 2018, chap. 2) |
 
 For numeric citations `[1]`, use `\documentclass[numbers]{researchnote}`.
-Do not load `natbib` again in the document.
+Do not load `natbib` again or set `\bibliographystyle` in the document.
+
+The reference list uses `QV_mnras.bst` (MNRAS style, from
+[phd-thesis-tempate](https://github.com/tdavidcl/phd-thesis-tempate), with
+BibTeX stack errors fixed). Keep it next to the `.tex` file. Links are coloured
+by destination when the `.bib` entry has the field:
+
+| Field | Linked text | Colour |
+| --- | --- | --- |
+| `doi` (or `url` on articles) | journal name | red (`LinkJournal`) |
+| `adsurl` | volume | blue (`LinkADS`) |
+| `eprint` | pages | green (`LinkArXiv`) |
+
+BibTeX exported from NASA ADS has all three fields.
 
 ## Page layout
 
