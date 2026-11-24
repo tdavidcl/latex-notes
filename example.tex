@@ -1,0 +1,99 @@
+\documentclass{researchnote}
+
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{lipsum}
+
+% --- shared macros (would live in common/macros.tex) ---
+\newcommand{\dd}{\mathrm{d}}
+
+\title{An example note title\\on a second line}
+\runningtitle{Example note}
+\author{Author Name}
+\affiliation{Institution Name}
+\date{1 January 2026}
+\notetags{tag one \textperiodcentered{} tag two \textperiodcentered{} tag three}
+% link back to the origin of the note: git repository, agent session, web page...
+\notesource{https://example.org/link/to/source}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This is the summary box. It holds a short description of what the note is about, two to five
+sentences long. The link below it points back to where the note came from.
+\end{abstract}
+
+\section{First section}
+
+\lipsum[1][1-5] A citation looks like this~\cite{Doe2020}, and a numbered equation like this:
+\begin{equation}
+  f(x) = \sum_{k=0}^{n} a_k\, x^k .
+  \label{eq:poly}
+\end{equation}
+
+\begin{tcdefinition}{A widget}{widget}
+A \emph{widget} is any object $w$ with a size $|w| \geq 0$ and a label $\ell(w)$.
+\end{tcdefinition}
+
+\section{Second section}
+
+\subsection{A subsection}
+
+\lipsum[2][1-4] Equation~\eqref{eq:poly} can be referred to, as can
+Figure~\ref{fig:example}.
+
+\begin{tcproposition}{A first claim}{claim}
+For any two widgets $u$ and $v$,
+\begin{equation}
+  |u \oplus v| \leq |u| + |v| .
+  \label{eq:claim}
+\end{equation}
+\end{tcproposition}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.5\linewidth]{example-image-a}
+  \caption{An example figure. The caption describes what is shown in one or two sentences.}
+  \label{fig:example}
+\end{figure}
+
+\subsection{Another subsection}
+
+\lipsum[3][1-3]
+
+\section{Third section}
+
+\begin{tctheorem}{A main result}{main}
+Under Proposition~\ref{prop:claim}, for all real $a$ and $b$,
+\begin{equation}
+  \bigl((a+b)+1\bigr)^2 = a^2 + 2ab + b^2 + 2a + 2b + 1 .
+\end{equation}
+\end{tctheorem}
+
+\begin{proof}
+Expand step by step:
+\[
+\begin{WithArrows}[displaystyle]
+  \bigl((a+b)+1\bigr)^2
+    & = (a+b)^2 + 2(a+b) + 1 \Arrow{we expand} \\
+    & = a^2 + 2ab + b^2 + 2a + 2b + 1 . \qedhere
+\end{WithArrows}
+\]
+\end{proof}
+
+A second reference, to a book~\cite{Roe2018}. A list of points:
+
+\begin{itemize}
+  \item \textbf{First point.} \lipsum[4][1-2]
+  \item \textbf{Second point.} \lipsum[5][1-2]
+\end{itemize}
+
+\begin{marker}
+\textbf{Warning box.} Use this for caveats or things that are easy to get wrong.
+\end{marker}
+
+\bibliographystyle{plainnat}
+\bibliography{example}
+
+\end{document}
